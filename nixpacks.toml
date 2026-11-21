@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python311", "nodejs_20"]
+
+[phases.install]
+cmds = ["python -m pip install --upgrade pip", "python -m pip install -r requirements.txt"]
+
+[start]
+cmd = "python HostingBot_Token_Set_Fixed.py"
