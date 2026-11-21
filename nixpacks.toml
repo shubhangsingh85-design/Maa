@@ -1,8 +1,14 @@
 [phases.setup]
-nixPkgs = ["python311", "python311Packages.pip", "nodejs_20"]
+nixPkgs = ["python311", "nodejs_20"]
 
 [phases.install]
-cmds = ["python -m pip install -r requirements.txt"]
+cmds = [
+  "python -m venv /opt/venv",
+  "/opt/venv/bin/python -m pip install -r requirements.txt"
+]
+
+[variables]
+PATH = "/opt/venv/bin:$PATH"
 
 [start]
-cmd = "python HostingBot_Token_Set_Fixed.py"
+cmd = "/opt/venv/bin/python HostingBot_Token_Set_Fixed.py"
